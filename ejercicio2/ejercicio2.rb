@@ -5,12 +5,21 @@ class Course
     @date = date.map { |date| Date.parse(date) }
   end
   def date_before(f)
-    @date.each do |i|
-      print @name if i < f
+    if f == Date.parse('2018-01-01')
+      puts 'Execepcion'
+    elsif @date[0] >= f
+      puts @name
+    end
+  end
+  def date_after(after)
+    if after == Date.parse('2018-01-01')
+      puts 'Execepcion'
+    elsif @date[0] <= after
+      puts @name
     end
   end
 end
-file = File.open('/Users/rstuardo/Desktop/git/actividad18/ejercicio2/cursos.txt', 'r')
+file = File.open('cursos.txt', 'r')
 data = file.readlines
 file.close
 
@@ -20,4 +29,5 @@ data.each do |line|
   cursos << Course.new(*ls)
 
 end
-cursos[0].date_before(Date.parse('2018-07-10'))
+cursos[1].date_before(Date.today)
+cursos[2].date_after(Date.today)

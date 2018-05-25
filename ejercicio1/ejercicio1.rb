@@ -24,7 +24,7 @@ class Table
   end
 end
 
- file = File.open('/Users/rstuardo/Desktop/git/actividad18/ejercicio1/casino.txt', 'r')
+ file = File.open('casino.txt', 'r')
  data = file.readlines
  file.close
 
